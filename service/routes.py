@@ -4,7 +4,7 @@ Account Service
 This microservice handles the lifecycle of Accounts
 """
 # pylint: disable=unused-import
-from flask import jsonify, request, make_response, abort, url_for   # noqa; F401
+from flask import jsonify, request, make_response, abort, url_for  # noqa; F401
 from service.models import Account
 from service.common import status  # HTTP Status Codes
 from . import app  # Import Flask application
@@ -71,7 +71,7 @@ def list_accounts():
     app.logger.info("Request to list Accounts")
 
     accounts = Account.all()
-    account_list = [account.serialize() for account in accounts]sed -i 's/[ \t]*$//' service/routes.py
+    account_list = [account.serialize() for account in accounts]
     app.logger.info("Returning [%s] accounts", len(account_list))
     return jsonify(account_list), status.HTTP_200_OK
 
@@ -146,4 +146,3 @@ def check_content_type(media_type):
         status.HTTP_415_UNSUPPORTED_MEDIA_TYPE,
         f"Content-Type must be {media_type}",
     )
-
