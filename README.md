@@ -1,4 +1,5 @@
 # devops-capstone-project
+![Build Status](https://github.com/tanmay-870/devops-capstone-project/actions/workflows/ci-build.yaml/badge.svg)
 "This is the capstone project for the DevOps course, featuring a customer account microservice."
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
