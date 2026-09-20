@@ -50,10 +50,10 @@ def create_accounts():
     account.deserialize(request.get_json())
     account.create()
     message = account.serialize()
-    
+
     # Updated since get_accounts is now implemented
     location_url = url_for("get_accounts", account_id=account.id, _external=True)
-    
+
     return make_response(
         jsonify(message), status.HTTP_201_CREATED, {"Location": location_url}
     )
@@ -71,8 +71,7 @@ def list_accounts():
     app.logger.info("Request to list Accounts")
 
     accounts = Account.all()
-    account_list = [account.serialize() for account in accounts]
-
+    account_list = [account.serialize() for account in accounts]sed -i 's/[ \t]*$//' service/routes.py
     app.logger.info("Returning [%s] accounts", len(account_list))
     return jsonify(account_list), status.HTTP_200_OK
 
@@ -147,3 +146,4 @@ def check_content_type(media_type):
         status.HTTP_415_UNSUPPORTED_MEDIA_TYPE,
         f"Content-Type must be {media_type}",
     )
+
