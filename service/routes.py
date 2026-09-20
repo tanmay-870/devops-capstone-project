@@ -72,6 +72,7 @@ def list_accounts():
 
     accounts = Account.all()
     account_list = [account.serialize() for account in accounts]
+    
     app.logger.info("Returning [%s] accounts", len(account_list))
     return jsonify(account_list), status.HTTP_200_OK
 
@@ -145,5 +146,5 @@ def check_content_type(media_type):
     abort(
         status.HTTP_415_UNSUPPORTED_MEDIA_TYPE,
         f"Content-Type must be {media_type}",
-    ) 
+    )
     
